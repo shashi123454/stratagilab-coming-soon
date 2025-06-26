@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Stratagilab – Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -17,22 +17,26 @@
       color: #fff;
       font-family: 'Inter', sans-serif;
       padding: 2rem 1.5rem;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
       text-align: center;
     }
 
+    .container {
+      max-width: 720px;
+      width: 100%;
+    }
+
     .logo {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 700;
       margin-bottom: 2rem;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-weight: 800;
       margin-bottom: 1rem;
     }
@@ -41,39 +45,38 @@
       font-size: 1.1rem;
       color: #ccc;
       margin-bottom: 2.5rem;
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
     form {
       display: flex;
       flex-direction: column;
-      align-items: center;
       gap: 1rem;
+      align-items: center;
       margin-bottom: 4rem;
     }
 
-    input,
-    textarea {
+    input, textarea {
       width: 100%;
       max-width: 400px;
       padding: 0.9rem 1.2rem;
-      border: 1px solid #333;
       border-radius: 8px;
       background-color: #111;
       color: #fff;
+      border: 1px solid #333;
       font-size: 1rem;
     }
 
     button {
+      padding: 0.9rem 1.5rem;
       background-color: #fff;
       color: #000;
-      font-weight: 600;
-      font-size: 1rem;
       border: none;
-      padding: 0.9rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
       border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
     }
 
     button:hover {
@@ -81,45 +84,59 @@
       transform: scale(1.02);
     }
 
-    .preview-section {
-      margin-top: 3rem;
-    }
-
-    .preview-section h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-    }
-
-    .image-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    .preview-card {
-      background-color: #111;
-      padding: 1.2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 0 1px #222, 0 12px 24px rgba(255, 255, 255, 0.03);
-      transition: transform 0.2s ease;
-    }
-
-    .preview-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .preview-card img {
+    .floating-preview {
+      position: relative;
       width: 100%;
-      border-radius: 8px;
-      border: 1px solid #333;
+      max-width: 720px;
+      height: 420px;
+      margin: 0 auto;
+      perspective: 1500px;
     }
 
-    .preview-title {
-      margin-top: 0.8rem;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #aaa;
+    .floating-preview img {
+      position: absolute;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(255,255,255,0.05);
+      border: 1px solid #333;
+      transition: transform 0.6s ease, z-index 0.6s;
+    }
+
+    .floating-preview img:nth-child(1) {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) rotateZ(-4deg) scale(0.95);
+      z-index: 1;
+    }
+
+    .floating-preview img:nth-child(2) {
+      top: 20px;
+      left: 52%;
+      transform: translateX(-50%) rotateZ(2deg) scale(0.98);
+      z-index: 2;
+    }
+
+    .floating-preview img:nth-child(3) {
+      top: 40px;
+      left: 49%;
+      transform: translateX(-50%) rotateZ(-1deg) scale(1);
+      z-index: 3;
+    }
+
+    .floating-preview:hover img:nth-child(1) {
+      transform: translateX(-50%) translateY(-20px) rotateZ(-6deg) scale(1.02);
+      z-index: 4;
+    }
+
+    .floating-preview:hover img:nth-child(2) {
+      transform: translateX(-50%) translateY(-10px) rotateZ(2deg) scale(1.03);
+      z-index: 5;
+    }
+
+    .floating-preview:hover img:nth-child(3) {
+      transform: translateX(-50%) translateY(0px) rotateZ(0deg) scale(1.05);
+      z-index: 6;
     }
 
     footer {
@@ -128,15 +145,12 @@
       color: #555;
     }
 
-    @media (min-width: 768px) {
-      .image-grid {
-        grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 768px) {
+      .floating-preview {
+        height: 360px;
       }
-    }
-
-    @media (min-width: 1024px) {
-      .image-grid {
-        grid-template-columns: repeat(3, 1fr);
+      .floating-preview img {
+        width: 95%;
       }
     }
   </style>
@@ -146,8 +160,8 @@
     <div class="logo">Stratagilab</div>
     <h1>We’re Launching Soon</h1>
     <p class="description">
-      Stratagilab is a powerful no-code strategy builder for traders.<br>
-      Join the early access list and see what we're building.
+      Stratagilab is a powerful no-code strategy builder for traders. <br>
+      Join our early access list and preview what we’re building.
     </p>
 
     <form action="https://formspree.io/f/mwpbwajj" method="POST">
@@ -156,23 +170,11 @@
       <button type="submit">Notify Me</button>
     </form>
 
-    <!-- Preview Section -->
-    <div class="preview-section">
-      <h2>Product Preview</h2>
-      <div class="image-grid">
-        <div class="preview-card">
-          <img src="./dashboard.png" alt="Dashboard Preview">
-          <div class="preview-title">Strategy Dashboard</div>
-        </div>
-        <div class="preview-card">
-          <img src="./backtest.png" alt="Backtest Preview">
-          <div class="preview-title">Backtesting Engine</div>
-        </div>
-        <div class="preview-card">
-          <img src="./paper-trading.png" alt="Paper Trading Preview">
-          <div class="preview-title">Paper Trading Simulator</div>
-        </div>
-      </div>
+    <!-- Floating Image Preview Section -->
+    <div class="floating-preview">
+      <img src="./dashboard.png" alt="Dashboard Preview" />
+      <img src="./backtest.png" alt="Backtest Preview" />
+      <img src="./paper-trading.png" alt="Paper Trading Preview" />
     </div>
 
     <footer>© 2025 Stratagilab. All rights reserved.</footer>
