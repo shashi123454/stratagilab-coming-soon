@@ -18,88 +18,152 @@
       font-family: 'Inter', sans-serif;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-      justify-content: center;
       align-items: center;
-      text-align: center;
       padding: 2rem;
+      text-align: center;
     }
 
-    .logo {
-      font-size: 1.5rem;
+    .container {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    .header {
+      font-size: 1.75rem;
       font-weight: 700;
-      color: #fff;
       margin-bottom: 2rem;
     }
 
     h1 {
-      font-size: 2.25rem;
-      font-weight: 700;
+      font-size: 2.5rem;
+      font-weight: 800;
       margin-bottom: 1rem;
     }
 
-    p {
+    p.description {
       font-size: 1rem;
-      max-width: 500px;
-      margin-bottom: 2rem;
       color: #ccc;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
     }
 
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      width: 100%;
-      max-width: 400px;
+      margin-bottom: 3rem;
     }
 
-    input, textarea {
-      padding: 0.75rem 1rem;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-      width: 100%;
-    }
-
+    input,
     textarea {
-      resize: vertical;
-      height: 100px;
+      padding: 0.85rem 1.2rem;
+      border: 1px solid #333;
+      border-radius: 6px;
+      background-color: #111;
+      color: #fff;
+      font-size: 1rem;
     }
 
     button {
-      padding: 0.75rem 1rem;
       background-color: #fff;
       color: #000;
-      border: none;
-      border-radius: 6px;
       font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      padding: 0.9rem 1.2rem;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     button:hover {
-      background-color: #ddd;
+      background-color: #eee;
+      transform: scale(1.02);
+    }
+
+    .preview-section {
+      margin-top: 3rem;
+    }
+
+    .preview-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #fff;
+    }
+
+    .preview-images {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figure img {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #444;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+    }
+
+    figcaption {
+      color: #aaa;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 768px) {
+      .preview-images {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     footer {
-      margin-top: 3rem;
+      margin-top: 4rem;
       font-size: 0.875rem;
       color: #555;
     }
   </style>
 </head>
 <body>
-  <div class="logo">🚧 Stratagilab</div>
-  <h1>Stratagilab is Launching Soon</h1>
-  <p>We’re building a powerful no-code strategy builder for traders.<br>Subscribe now to get early access!</p>
+  <div class="container">
+    <div class="header">Stratagilab</div>
+    <h1>We’re Launching Soon</h1>
+    <p class="description">
+      Stratagilab is a powerful no-code strategy builder for traders. <br>
+      Subscribe now to get early access and preview what we’re building.
+    </p>
 
-  <!-- Formspree form -->
-  <form action="https://formspree.io/f/mwpbwajj" method="POST">
-    <input type="email" name="email" placeholder="Your email" required />
-    <textarea name="message" placeholder="Optional message (feedback, interest, etc.)"></textarea>
-    <button type="submit">Notify Me</button>
-  </form>
+    <!-- Email form -->
+    <form action="https://formspree.io/f/mwpbwajj" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <textarea name="message" placeholder="Optional message (optional)"></textarea>
+      <button type="submit">Notify Me</button>
+    </form>
 
-  <footer>© 2025 Stratagilab. All rights reserved.</footer>
+    <!-- UI Preview Section -->
+    <div class="preview-section">
+      <h2>Preview Our Platform</h2>
+      <div class="preview-images">
+        <figure>
+          <img src="./dashboard.png" alt="Dashboard Preview" />
+          <figcaption>Strategy Dashboard</figcaption>
+        </figure>
+        <figure>
+          <img src="./backtest.png" alt="Backtest Preview" />
+          <figcaption>Backtest Engine</figcaption>
+        </figure>
+        <figure>
+          <img src="./paper-trading.png" alt="Paper Trading Preview" />
+          <figcaption>Paper Trading Module</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <footer>© 2025 Stratagilab. All rights reserved.</footer>
+  </div>
 </body>
 </html>
