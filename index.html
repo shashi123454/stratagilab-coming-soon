@@ -1,70 +1,100 @@
-<!-- coming-soon.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Stratagilab – Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      background: #0a0a0a;
-      color: white;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
       display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      font-family: Arial, sans-serif;
-      height: 100vh;
       text-align: center;
-      padding: 20px;
+      padding: 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2rem;
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
 
     p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      color: #ccc;
-      margin-bottom: 30px;
-    }
-
-    input, button {
-      padding: 12px;
       font-size: 1rem;
-      border-radius: 5px;
+      max-width: 500px;
+      margin-bottom: 2rem;
+      color: #ccc;
+    }
+
+    .email-form {
+      display: flex;
+      flex-direction: row;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .email-form input {
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
       border: none;
-      margin: 5px;
-    }
-
-    input {
       width: 250px;
+      font-size: 1rem;
     }
 
-    button {
-      background: white;
-      color: black;
+    .email-form button {
+      padding: 0.75rem 1rem;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
       cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .email-form button:hover {
+      background-color: #ddd;
     }
 
     footer {
       position: absolute;
-      bottom: 20px;
-      font-size: 0.8rem;
-      color: #777;
+      bottom: 1rem;
+      font-size: 0.875rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <h1>🚧 Stratagilab is Launching Soon</h1>
-  <p>We’re building a powerful no-code strategy builder for traders. Subscribe now to get early access!</p>
-  <form action="https://formsubmit.co/your@email.com" method="POST">
-    <input type="email" name="email" placeholder="Enter your email" required />
+  <div class="logo">🚧 Stratagilab</div>
+  <h1>Stratagilab is Launching Soon</h1>
+  <p>We’re building a powerful no-code strategy builder for traders.<br>Subscribe now to get early access!</p>
+
+  <form class="email-form">
+    <input type="email" placeholder="Enter your email" required>
     <button type="submit">Notify Me</button>
   </form>
+
   <footer>© 2025 Stratagilab. All rights reserved.</footer>
 </body>
 </html>
